@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useQuery } from "@tanstack/react-query";
+import { keepPreviousData, useQuery } from "@tanstack/react-query";
 import { useDebouncedCallback } from "use-debounce";
 import { fetchNotes } from "../../services/noteService";
 import NoteList from "../NoteList/NoteList";
@@ -26,6 +26,7 @@ const App = () => {
         perPage: 12,
         search,
       }),
+    placeholderData: keepPreviousData,
   });
 
   return (
